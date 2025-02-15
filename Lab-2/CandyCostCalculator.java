@@ -33,6 +33,6 @@ public class CandyCostCalculator {
         // Виведення результатів
         System.out.printf("Prise for 1 kg of chocolates: %.2f usd%n", chocolateCostPerKg);
         System.out.printf("Prise for 1 kg of toffee: %.2f usd%n", toffeeCostPerKg);
-        System.out.printf("Chocolates are more expensive than toffees in %.2f as%n", priceDifference);
+        System.out.printf("Chocolates are more expensive than toffees %.2f %n", priceDifference);
     }
 }

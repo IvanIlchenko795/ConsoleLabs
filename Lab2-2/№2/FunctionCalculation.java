@@ -5,11 +5,11 @@ public class FunctionCalculation {
         Scanner sc = new Scanner(System.in);
 
         // Введення значень a та m
-        System.out.print("Введіть a: ");
+        System.out.print("Enter a: ");
         double a = sc.nextDouble();
-        System.out.print("Введіть m: ");
+        System.out.print("Enter m: ");
         double m = sc.nextDouble();
-        System.out.print("Введіть x: ");
+        System.out.print("Enter x: ");
         double x = sc.nextDouble();
 
         // Обчислення g за умовами

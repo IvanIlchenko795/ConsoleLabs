@@ -11,7 +11,7 @@ public class Variant3 {
         int product = 1;
         int sum = 0, count = 0;
 
-        System.out.println("Масив Z:");
+        System.out.println("Z array:");
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -36,7 +36,7 @@ public class Variant3 {
         double avgPositive = count > 0 ? (double) sum / count : 0;
 
         // Виведення результатів
-        System.out.println("\nДобуток елементів з парних рядків (" + a + "; " + b + "): " + product);
-        System.out.println("Середнє арифметичне додатних елементів: " + avgPositive);
+        System.out.println("The product of the elements in the even rows (" + a + "; " + b + "): " + product);
+        System.out.println("The arithmetic mean of the positive elements: " + avgPositive);
     }
 }

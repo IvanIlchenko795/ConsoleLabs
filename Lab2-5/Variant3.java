@@ -16,7 +16,7 @@ public class Variant3 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 Z[i][j] = rand.nextInt(21) - 6; // Випадкові числа [-6; 14]
-                System.out.print(Z[i][j] + "\t");
+                System.out.print(Z[i][j] + " ");
 
                 // Середнє арифметичне додатних
                 if (Z[i][j] > 0) {

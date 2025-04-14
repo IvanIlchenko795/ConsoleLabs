@@ -1,21 +1,17 @@
-import java.util.Random;
-
 public class Variant3 {
     public static void main(String[] args) {
         int n = 5; // Кількість рядків
         int m = 5; // Кількість стовпців
         int[][] Z = new int[n][m];
-        Random rand = new Random();
-
         int a = 2, b = 10; // Межі для фільтрації
-        int product = 1;
-        int sum = 0, count = 0;
+        int product = 1; // Змінна для добутку парних рядків
+        int sum = 0, count = 0; // Змінні для середнього арифметичого
 
         System.out.println("Z array:");
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                Z[i][j] = rand.nextInt(21) - 6; // Випадкові числа [-6; 14]
+                Z[i][j] = (int)(Math.random()* 21) - 6; // Випадкові числа [-6; 14]
                 System.out.print(Z[i][j] + " ");
 
                 // Середнє арифметичне додатних
@@ -31,7 +27,7 @@ public class Variant3 {
             }
             System.out.println();
         }
-
+ 
         // Середнє арифметичне
         double avgPositive = count > 0 ? (double) sum / count : 0;
 

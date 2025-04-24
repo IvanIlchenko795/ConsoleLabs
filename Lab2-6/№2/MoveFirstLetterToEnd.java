@@ -27,7 +27,7 @@ public class MoveFirstLetterToEnd {
         // Виведення результату
         System.out.println("Оригiнальний текст:");
         System.out.println(text);
-        System.out.println("Модифiкований текст (перша лiтера перенесена в кiнець слова):");
+        System.out.println("\nМодифiкований текст (перша лiтера перенесена в кiнець слова):");
         System.out.println(result.toString().trim());
     }
 }

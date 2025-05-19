@@ -9,10 +9,8 @@ public class Main {
         int a = sc.nextInt();
         System.out.print("Введiть друге цiле число: ");
         int b = sc.nextInt();
-
         IntegerNumber1 n1 = new IntegerNumber1(a);
         IntegerNumber1 n2 = new IntegerNumber1(b);
-
         n1.printOperations(n2);
 
         // Введення для масиву об'єктів IntegerNumber2 / Fraction (Завдання №2)

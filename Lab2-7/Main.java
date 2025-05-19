@@ -1,100 +1,87 @@
-// Головний клас, який використовує всі 3 завдання
 import java.util.Scanner;
-import task1.IntegerNumber1;
-import task2.IntegerNumber2;
-import task2.Fraction;
-import task3.AbstractOperation;
-import task3.Addition;
-import task3.Subtraction;
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in); // один Scanner для всіх методів
-
     public static void main(String[] args) {
-        System.out.println("Завдання 1");
-        task1();
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("\nЗавдання 2");
-        task2();
-
-        System.out.println("\nЗавдання 3");
-        task3();
-
-        scanner.close();
-    }
-
-    // Завдання 1 — цілі числа
-    public static void task1() {
+        // Введення для IntegerNumber1 (Завдання №1)
         System.out.print("Введiть перше цiле число: ");
-        int a = scanner.nextInt();
+        int a = sc.nextInt();
         System.out.print("Введiть друге цiле число: ");
-        int b = scanner.nextInt();
+        int b = sc.nextInt();
 
-        IntegerNumber1 num1 = new IntegerNumber1(a);
-        IntegerNumber1 num2 = new IntegerNumber1(b);
+        IntegerNumber1 n1 = new IntegerNumber1(a);
+        IntegerNumber1 n2 = new IntegerNumber1(b);
 
-        System.out.println("Сума: " + num1.add(num2));
-        System.out.println("Рiзниця: " + num1.subtract(num2));
-        System.out.println("Добуток: " + num1.multiply(num2));
-        System.out.println("Частка: " + num1.divide(num2));
-    }
+        n1.printOperations(n2);
 
-    // Завдання 2 — цілі + дроби в масиві
-    public static void task2() {
-    IntegerNumber2[] numbers = new IntegerNumber2[4];
+        // Введення для масиву об'єктів IntegerNumber2 / Fraction (Завдання №2)
+        IntegerNumber2[] numbers = new IntegerNumber2[4];
+        System.out.println("\nВведiть 4 значення (цiле або дрiб типу 2/3):");
 
-    System.out.println("Введіть 4 числа: або ціле (наприклад 5), або дріб (наприклад 1/2)");
-
-    for (int i = 0; i < 4; i++) {
-        System.out.print("Введіть число #" + (i + 1) + " (ціле або дріб): ");
-        String input = scanner.next();
-
-        if (input.contains("/")) {
-            String[] parts = input.split("/");
-            int numerator = Integer.parseInt(parts[0]);
-            int denominator = Integer.parseInt(parts[1]);
-            numbers[i] = new Fraction(numerator, denominator);
-        } else {
-            int value = Integer.parseInt(input);
-            numbers[i] = new IntegerNumber2(value);
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Введiть значення №" + (i + 1) + ": ");
+            String input = sc.next();
+            if (input.contains("/")) {
+                String[] parts = input.split("/");
+                int num = Integer.parseInt(parts[0]);
+                int den = Integer.parseInt(parts[1]);
+                numbers[i] = new Fraction(num, den);
+            } else {
+                int val = Integer.parseInt(input);
+                numbers[i] = new IntegerNumber2(val);
+            }
         }
-    }
 
-    System.out.println("\nВиведення елементів масиву:");
-    for (IntegerNumber2 num : numbers) {
-        System.out.println(num); // один оператор
-    }
-
-    System.out.println("\nСкладання сусідніх елементів:");
-    for (int i = 0; i < numbers.length - 1; i++) {
-        IntegerNumber2 a = numbers[i];
-        IntegerNumber2 b = numbers[i + 1];
-
-        System.out.print("Сума " + a + " + " + b + " = ");
-
-        if (a instanceof Fraction && b instanceof Fraction) {
-            System.out.println(((Fraction) a).add((Fraction) b));
-        } else if (a instanceof Fraction) {
-            System.out.println(((Fraction) a).addFraction(b));
-        } else if (b instanceof Fraction) {
-            System.out.println(((Fraction) b).addFraction(a));
-        } else {
-            System.out.println(a.add(b));
+        System.out.println("\nЕлементи масиву:");
+        for (IntegerNumber2 n : numbers) {
+            System.out.println(n);
         }
-    }
-}
 
-    // Завдання 3 — абстрактні операції
-    public static void task3() {
-        System.out.print("Введiть перше число: ");
-        int a = scanner.nextInt();
-        System.out.print("Введiть друге число: ");
-        int b = scanner.nextInt();
+        System.out.println("\nСума сусiднiх елементiв:");
+        for (int i = 0; i < numbers.length - 1; i++) {
+            IntegerNumber2 x = numbers[i];
+            IntegerNumber2 y = numbers[i + 1];
 
-        AbstractOperation add = new Addition(a, b);
-        AbstractOperation sub = new Subtraction(a, b);
+            System.out.print(x + " + " + y + " = ");
+            if (x instanceof Fraction && y instanceof Fraction) {
+                System.out.println(((Fraction) x).add((Fraction) y));
+            } else if (x instanceof Fraction) {
+                System.out.println(((Fraction) x).addFraction(y));
+            } else if (y instanceof Fraction) {
+                System.out.println(((Fraction) y).addFraction(x));
+            } else {
+                System.out.println(x.add(y));
+            }
+        }
 
-        System.out.println(add.getDescription() + " => Результат: " + add.calculate());
-        System.out.println(sub.getDescription() + " => Результат: " + sub.calculate());
+        // Введення для контейнерів (Завдання №3)
+        System.out.print("\nКiлькiсть цiлих чисел у контейнерi: ");
+        int m1 = sc.nextInt();
+        Integer[] ints = new Integer[m1];
+        for (int i = 0; i < m1; i++) {
+            System.out.print("int[" + i + "] = ");
+            ints[i] = sc.nextInt();
+        }
+
+        System.out.print("\nКiлькiсть дiйсних чисел у контейнерi: ");
+        int m2 = sc.nextInt();
+        Double[] doubles = new Double[m2];
+        for (int i = 0; i < m2; i++) {
+            System.out.print("double[" + i + "] = ");
+            doubles[i] = sc.nextDouble();
+        }
+
+        Container<?>[] containers = new Container[] {
+            new IntContainer(ints),
+            new DoubleContainer(doubles)
+        };
+
+        System.out.println("\nРезультати контейнерiв:");
+        for (Container<?> c : containers) {
+            System.out.println(c); // toString виведе все: до, після, сума
+        }
+
+        sc.close();
     }
 }

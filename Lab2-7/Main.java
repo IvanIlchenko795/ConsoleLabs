@@ -18,7 +18,7 @@ public class Main {
         System.out.println("\nВведiть 4 значення (цiле або дрiб типу 2/3):");
 
         for (int i = 0; i < 4; i++) {
-            System.out.print("Введiть значення №" + (i + 1) + ": ");
+            System.out.print("Введiть значення #" + (i + 1) + ": ");
             String input = sc.next();
             if (input.contains("/")) {
                 String[] parts = input.split("/");
@@ -67,18 +67,27 @@ public class Main {
         Double[] doubles = new Double[m2];
         for (int i = 0; i < m2; i++) {
             System.out.print("double[" + i + "] = ");
-            doubles[i] = sc.nextDouble();
+            String input = sc.next().replace(",", "."); // дозволяємо кому
+
+                if (input.contains("/")) {
+                String[] parts = input.split("/");
+                double num = Double.parseDouble(parts[0]);
+                double den = Double.parseDouble(parts[1]);
+                doubles[i] = num / den;
+            } else {
+                doubles[i] = Double.parseDouble(input);
         }
+    }
 
         Container<?>[] containers = new Container[] {
-            new IntContainer(ints),
-            new DoubleContainer(doubles)
-        };
+        new IntContainer(ints),
+        new DoubleContainer(doubles)
+    };
 
         System.out.println("\nРезультати контейнерiв:");
         for (Container<?> c : containers) {
-            System.out.println(c); // toString виведе все: до, після, сума
-        }
+        System.out.println(c); // toString виведе все: до, після, сума
+    }
 
         sc.close();
     }

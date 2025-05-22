@@ -1,0 +1,7 @@
+Products List
+ProductA = 50 UAH
+ProductB = 60 UAH
+NewProduct = 100 UAH
+
+ProductC = 40 UAH
+NewProduct = 80 UAH
